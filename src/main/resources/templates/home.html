@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home - Management System</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: white; /* Light background color */
+        }
+
+        .navbar {
+            background-color: #59ce8f; /* Teal color for navbar */
+        }
+
+        .navbar-brand, .nav-link {
+            color: white !important; /* White text for navbar */
+        }
+
+        .hero-section {
+            background: url('https://source.unsplash.com/1600x900/?business,management') no-repeat center center; /* Background image */
+            background-size: cover; /* Cover the entire section */
+            background-color:#e8f9fd;
+            color: black; /* White text color */
+            padding: 100px 20px; /* Padding for the hero section */
+            text-align: center; /* Center text */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Shadow effect */
+        }
+
+        h1 {
+            font-size: 3rem; /* Increased font size */
+            font-weight: bold; /* Bold font */
+        }
+
+        .lead {
+            font-size: 1.25rem; /* Font size for lead text */
+            margin-bottom: 30px; /* Margin for spacing */
+        }
+
+        .link-button {
+            margin: 10px; /* Margin for spacing */
+            font-size: 1.25rem; /* Font size for buttons */
+            padding: 15px 30px; /* Padding for buttons */
+            border-radius: 30px; /* Rounded buttons */
+            transition: background-color 0.3s, transform 0.3s; /* Transition effects */
+        }
+
+        .link-button.btn-light {
+            background-color: #ffb74d; /* Light orange color */
+            color: #333; /* Dark text color */
+        }
+
+        .link-button.btn-light:hover {
+            background-color: #9df9ef; /* Darker orange on hover */
+            transform: scale(1.05); /* Slightly enlarge on hover */
+        }
+
+        .features {
+            margin-top: 50px; /* Margin for spacing */
+        }
+
+        .feature-card {
+            border: 1px solid #e0e0e0; /* Light border */
+            border-radius: 10px; /* Rounded corners */
+            padding: 20px; /* Padding for cards */
+            text-align: center; /* Center text */
+            transition: transform 0.3s; /* Transition effect */
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px); /* Lift effect on hover */
+        }
+
+        footer {
+            background-color: #9df9ef; /* Dark gray background for footer */
+            color: black; /* White text color */
+            padding: 20px 0; /* Padding for footer */
+            text-align: center; /* Center text */
+            position: relative; /* Positioning */
+            bottom: 0; /* Stick to bottom */
+            width: 100%; /* Full width */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">Management System</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/getAllProjects}">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/getAllEmployees}">Employees</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/getAllTasks}">Tasks</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <h1>Welcome to the Management System</h1>
+        <p class="lead">Your one-stop solution for managing projects, employees, and tasks efficiently.</p>
+        <div>
+            <a th:href="@{/getAllProjects}" class="btn btn-light link-button">View Projects</a>
+            <a th:href="@{/getAllEmployees}" class="btn btn-light link-button">Employees</a>
+            <a th:href="@{/getAllTasks}" class="btn btn-light link-button">Tasks</a>
