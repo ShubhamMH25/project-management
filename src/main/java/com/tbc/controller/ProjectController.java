@@ -1,6 +1,8 @@
 package com.tbc.controller;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.ui.Model;
 
 
@@ -46,9 +48,21 @@ public class ProjectController {
     	projectService.deleteProject(id);
     	return "redirect:/getAllProjects";
     }
+    @GetMapping("/editProject/{id}")
+    public String editProject(@PathVariable("id") Long id, Model model) {
+        Project project = projectService.getProjectById(id);
+        model.addAttribute("editProject", project);
+        return "editProj"; // Return the same view with the project preloaded for editing
+    }
 
-}
+    @PostMapping("/editProject")
+    public String saveEditedProject(@ModelAttribute Project project) {
+        projectService.saveProject(project); // Save updated project
+        return "redirect:/getAllProjects";
+    }
 
-	
+}   
+
+
 	
 

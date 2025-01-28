@@ -1,6 +1,7 @@
 package com.tbc.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,14 @@ public class ProjectService {
 	 public void deleteProject(Long id) {
 		  projectRepo.deleteById(id);
 	 }
+	 public Optional<Project> getproject(Long id) {
+		return projectRepo.findById(id);
+	 }
+	 
+	 public Project getProjectById(Long id) {
+	        return projectRepo.findById(id)
+	                .orElseThrow(() -> new RuntimeException("Project not found with ID: " + id));
+	    }
 	
 	
 	
